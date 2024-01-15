@@ -3,6 +3,7 @@ const express = require('express')
 const { engine } = require('express-handlebars')
 const app = express()
 const port = process.env.PORT || 3040
+const fortune = require('./lib/fortune')
 
 app.use(express.static(__dirname + `/public`))
 
@@ -16,7 +17,9 @@ app.set('view engine', '.hbs')
 
 app.get('/', (req, res) => res.render('home'))
 
-app.get('/about', (req, res) => res.render('about'))
+app.get('/about', (req, res) => {
+    res.render('about', { fortune: fortune.getFortune() })
+})
 
 // Пользовательская страница 404
 app.use((req, res) => {
