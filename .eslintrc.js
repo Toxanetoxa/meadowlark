@@ -9,9 +9,11 @@ module.exports = {
     {
       env: {
         node: true,
+        jest: true,
       },
       files: [
         '.eslintrc.{js,cjs}',
+        '**.test.js',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -22,5 +24,6 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    'no-console': 'off',
   },
 };
