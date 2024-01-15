@@ -25,8 +25,7 @@ app.use(handlers.serverError);
 
 if (require.main === module) {
   app.listen(port, () => console.log(
-    `Express запущен на http://localhost:${port}; 
-    нажмите Ctrl+C для завершения.`,
+    `Express запущен на http://localhost:${port}; нажмите Ctrl+C для завершения.`,
   ));
 } else {
   module.exports = app;
