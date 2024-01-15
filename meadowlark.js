@@ -4,6 +4,8 @@ const { engine } = require('express-handlebars')
 const app = express()
 const port = process.env.PORT || 3040
 
+app.use(express.static(__dirname + `/public`))
+
 app.engine('hbs', engine({
     extname: 'hbs',
     defaultLayout: 'main',
@@ -23,7 +25,7 @@ app.use((req, res) => {
 })
 
 // Пользовательская страница 500
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     console.error(err.message)
     res.status(500)
     res.render('500')
