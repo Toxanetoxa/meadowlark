@@ -1,12 +1,14 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
+const bodyParser = require('body-parser');
+const handlers = require('./lib/handler');
 
 const app = express();
 const port = process.env.PORT || 3040;
-const handlers = require('./lib/handler');
 
 // Статичные данные
 app.use(express.static(`${__dirname}/public`));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Использование шаблонизатора handlebars
 app.engine('hbs', engine({
