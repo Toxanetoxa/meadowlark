@@ -26,5 +26,8 @@
     "puppeteer": "^21.7.0",
     "s": "^1.0.0",
     "ta": "^0.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "pre-push"
   }
 }
